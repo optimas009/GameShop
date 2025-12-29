@@ -7,7 +7,7 @@ Watch the demo here: [[Click to View](https://drive.google.com/drive/folders/1Yl
 
 | Layer      | Technology            |
 | ---------- | --------------------- |
-| Frontend   | React.js              |
+| Frontend   | React.js , CSS             |
 | Backend    | Node.js, Express.js   |
 | Database   | MongoDB               |
 | Auth       | JWT (JSON Web Tokens) |
