@@ -1,0 +1,162 @@
+/* --- Profile Page Container --- */
+.profile-page {
+  background: #0a0a0a !important; /* Deep black background */
+  min-height: 100vh;
+  padding: 60px 20px;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #fff;
+}
+
+.profile-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.profile-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  text-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+}
+
+/* --- Player Dashboard Card --- */
+.profile-card {
+  background: #111;
+  border-radius: 24px;
+  padding: 40px;
+  border: 1px solid #222;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+  max-width: 450px;
+  margin: 0 auto 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  text-align: center;
+  transition: border-color 0.3s ease;
+}
+
+.profile-card:hover {
+  border-color: #6366f1; /* Indigo glow on hover */
+}
+
+.profile-name {
+  font-size: 32px;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.profile-email {
+  font-size: 14px;
+  color: #888;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* --- Library Section Styling --- */
+.profile-subtitle {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 60px 0 30px;
+  border-left: 6px solid #6366f1; /* Neon Indigo accent */
+  padding-left: 20px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.library-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.library-card {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.library-card:hover {
+  box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+  transform: translateY(-10px);
+  border-color: #6366f1;
+}
+
+/* --- Full Image Display Logic (No Cutting) --- */
+.library-media {
+  width: 100%;
+  height: 220px; 
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-bottom: 1px solid #222;
+}
+
+.library-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Ensures cover art is fully visible */
+  transition: transform 0.5s ease;
+}
+
+.library-card:hover .library-img {
+  transform: scale(1.1);
+}
+
+/* --- Game Info Text --- */
+.library-info {
+  padding: 24px;
+  background: linear-gradient(to bottom, #111, #0a0a0a);
+}
+
+.library-title {
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0 0 10px 0;
+  color: #fff;
+}
+
+.library-info p {
+  font-size: 14px;
+  font-weight: 700;
+  color: #6366f1; /* Neon Indigo for price or status */
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* --- Empty State --- */
+.profile-empty {
+  text-align: center;
+  color: #555;
+  grid-column: 1 / -1;
+  padding: 60px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.profile-link {
+  color: #6366f1;
+  font-weight: 800;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+  padding: 0 5px;
+}
+
+.profile-link:hover {
+  color: #fff;
+  text-shadow: 0 0 10px #6366f1;
+}

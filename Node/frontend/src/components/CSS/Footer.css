@@ -1,0 +1,56 @@
+/* --- Footer Container --- */
+.footer-up {
+  list-style: none;
+  margin: 0;
+  padding: 30px 0; /* Increased padding for a more premium feel */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px; /* Wider spacing between links */
+
+  width: 100%;
+  background: #000; /* Pure black to match Navbar */
+  border-top: 1px solid #1a1a1a; /* Subtle dark divider */
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5); /* Shadow projecting upwards */
+}
+
+.footer-up li {
+  list-style: none;
+}
+
+/* --- Footer Links --- */
+.footer-up a {
+  text-decoration: none;
+  color: #888; /* Muted grey text */
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase; /* Gaming style caps */
+  letter-spacing: 1.5px;
+  
+  padding: 8px 16px;
+  border-radius: 4px; /* Sharper corners */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ✅ Hover Effect: Glow & Text Color Flip */
+.footer-up a:hover {
+  color: #fff; /* White text on hover */
+  background: rgba(99, 102, 241, 0.1); /* Subtle Indigo tint */
+  transform: translateY(-3px); /* Lift effect */
+  text-shadow: 0 0 10px rgba(99, 102, 241, 0.8); /* Neon glow */
+}
+
+/* --- Responsive Mobile View --- */
+@media (max-width: 600px) {
+  .footer-up {
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 0;
+    text-align: center;
+  }
+  
+  .footer-up a {
+    letter-spacing: 2px;
+  }
+}

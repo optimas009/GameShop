@@ -1,0 +1,164 @@
+/* --- Root Styles & Animations --- */
+.home {
+  background: #f8fafc;
+  color: #1e293b;
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+/* --- 🚀 Hero Section: Bold & Gradient --- */
+.home-hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative blur circles for that 'modern' look */
+.home-hero::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 300px;
+  height: 300px;
+  background: rgba(99, 102, 241, 0.2);
+  filter: blur(100px);
+  border-radius: 50%;
+}
+
+.home-hero h1 {
+  font-size: 4rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+  letter-spacing: -2px;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+/* --- CTA Button --- */
+.cta-btn {
+  background: #6366f1;
+  color: white;
+  border: none;
+  padding: 16px 40px;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+}
+
+.cta-btn:hover {
+  transform: translateY(-3px);
+  background: #4f46e5;
+  box-shadow: 0 15px 30px rgba(99, 102, 241, 0.4);
+}
+
+/* --- 🛠 Tech Grid Section --- */
+.home-section {
+  max-width: 1100px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 50px;
+  color: #0f172a;
+}
+
+.tech-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.tech-tag {
+  background: white;
+  color: #6366f1;
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  border: 1px solid #e2e8f0;
+}
+
+/* --- ✨ Feature Cards --- */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.feature-card {
+  background: white;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+  border: 1px solid #f1f5f9;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+}
+
+.admin-highlight {
+  border: 2px solid #6366f1;
+  background: #f5f3ff;
+}
+
+.card-icon {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.feature-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.feature-card li {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #475569;
+}
+
+.feature-card li::before {
+  content: '✓';
+  color: #6366f1;
+  font-weight: bold;
+  margin-right: 12px;
+}
+
+/* --- 📝 Footer Section --- */
+.home-footer {
+  text-align: center;
+  padding: 60px 20px;
+  background: #f1f5f9;
+  border-top: 1px solid #e2e8f0;
+  color: #64748b;
+  font-size: 14px;
+}

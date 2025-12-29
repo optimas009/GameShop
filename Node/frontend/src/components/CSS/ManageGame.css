@@ -1,0 +1,50 @@
+/* --- Admin Action Container --- */
+.admin-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: auto; /* Pushes buttons to the bottom of the card */
+  padding-top: 15px;
+  border-top: 1px solid #222;
+}
+
+/* --- Base Admin Button --- */
+.admin-btn {
+  flex: 1;
+  padding: 12px 8px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #222; /* Neutral dark for Update */
+  color: #fff;
+}
+
+.admin-btn:hover {
+  background: #333;
+  transform: translateY(-2px);
+}
+
+/* --- Danger / Delete Button --- */
+.admin-btn.danger {
+  background: rgba(255, 75, 75, 0.1); /* Subtle red tint */
+  color: #ff4b4b; /* Gamer Red */
+  border: 1px solid rgba(255, 75, 75, 0.3);
+}
+
+.admin-btn.danger:hover {
+  background: #ff4b4b; /* Solid red on hover */
+  color: #fff;
+  box-shadow: 0 0 15px rgba(255, 75, 75, 0.4);
+  border-color: #ff4b4b;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 480px) {
+  .admin-actions {
+    flex-direction: column; /* Stack buttons on small mobile */
+  }
+}
