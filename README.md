@@ -18,6 +18,8 @@ Watch the demo here: [[Click to View](https://drive.google.com/drive/folders/1Yl
 
 
 ✨ System Features
+
+
 👤 Player Profile
 
 🔐 JWT Authentication — Secure session handling
@@ -40,9 +42,8 @@ Watch the demo here: [[Click to View](https://drive.google.com/drive/folders/1Yl
 
 🔐 Security Practices
 
-Environment variables protected via .env
 
-.env excluded using .gitignore
+Environment variables protected via .env
 
 Passwords hashed using bcrypt
 
