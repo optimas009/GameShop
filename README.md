@@ -3,8 +3,7 @@ A production-ready full-stack game store platform built using the MERN stack, fe
 
 
 ### 🎥 Video Demonstration
-Watch the demo here: [Click to View]([https://drive.google.com/drive/folders/1Cw_dK1MXUBcnXMCh2L-rhClj1kA8fq4o](https://drive.google.com/drive/folders/1YlwzBJyO-U8C28E3TtsxlKjnicEOvQkM?usp=sharing))
-
+Watch the demo here: [Click to View](https://drive.google.com/drive/folders/1Cw_dK1MXUBcnXMCh2L-rhClj1kA8fq4](https://drive.google.com/drive/u/0/folders/1YlwzBJyO-U8C28E3TtsxlKjnicEOvQkM)o)
 
 | Layer      | Technology            |
 | ---------- | --------------------- |
