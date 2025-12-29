@@ -2,11 +2,8 @@
 A production-ready full-stack game store platform built using the MERN stack, featuring secure authentication, email verification, smart purchasing logic, and role-based admin controls.
 
 
-## 🎥 Video Demonstration
-
-▶️ **Watch the full project demo:**  
-🔗 [Click to View]([https://youtu.be/YOUR_VIDEO_LINK](https://drive.google.com/drive/folders/1YlwzBJyO-U8C28E3TtsxlKjnicEOvQkM?usp=sharing))
-
+### 🎥 Video Demonstration
+Watch the demo here: [Click to View]([https://drive.google.com/drive/folders/1Cw_dK1MXUBcnXMCh2L-rhClj1kA8fq4o](https://drive.google.com/drive/folders/1YlwzBJyO-U8C28E3TtsxlKjnicEOvQkM?usp=sharing))
 
 
 | Layer      | Technology            |
