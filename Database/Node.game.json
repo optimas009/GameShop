@@ -1,0 +1,173 @@
+[{
+  "_id": {
+    "$oid": "6952310733db4626ee7b4faf"
+  },
+  "title": "GTA V",
+  "price": 69.99,
+  "developer": "Rockstar Games",
+  "sizeGB": 95,
+  "imageUrl": "https://upload.wikimedia.org/wikipedia/en/a/a5/Grand_Theft_Auto_V.png",
+  "platform": "PC",
+  "genre": "Action",
+  "description": "\"Explore the sprawling sun-drenched metropolis of Los Santos and the wilderness of Blaine County. Experience the intertwined stories of three very different criminals as they risk everything in a series of daring and dangerous heists in an ever-evolving world.\"",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6952369fe2cd1eae9150a09c"
+  },
+  "title": "Red Dead Redemption 2",
+  "price": 59.99,
+  "developer": "Rockstar Games",
+  "sizeGB": 120,
+  "imageUrl": "https://upload.wikimedia.org/wikipedia/en/4/44/Red_Dead_Redemption_II.jpg",
+  "platform": "PC",
+  "genre": "Action",
+  "description": "\"Rise, Tarnished, and be guided by grace to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between. Traverse a vast, seamless world filled with terrifying adversaries and rich lore crafted by Hidetaka Miyazaki and George R. R. Martin.\"",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69524a11023c5363520d750c"
+  },
+  "title": "Cyberpunk 2077",
+  "price": 49.99,
+  "developer": "CD Projekt Red",
+  "sizeGB": 70,
+  "imageUrl": "https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg",
+  "platform": "PC/PS5/Xbox",
+  "genre": "Open World / RPG",
+  "description": "\"Immerse yourself in Night City, a sprawling megalopolis obsessed with power, glamour, and body modification. Play as V, a mercenary outlaw going after a one-of-a-kind implant that is the key to immortality in this gritty, open-world action RPG.\"",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "695268dd02796dadc10d84b8"
+  },
+  "title": "Elden Ring",
+  "price": 59.99,
+  "developer": "FromSoftware",
+  "sizeGB": 60,
+  "imageUrl": "https://upload.wikimedia.org/wikipedia/en/b/b9/Elden_Ring_Box_art.jpg",
+  "platform": "PC/PS5/Xbox",
+  "genre": "Action RPG",
+  "description": "Rise, Tarnished, and be guided by grace to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between."
+},
+{
+  "_id": {
+    "$oid": "695268dd02796dadc10d84b9"
+  },
+  "title": "The Witcher 3: Wild Hunt",
+  "price": 39.99,
+  "developer": "CD Projekt Red",
+  "sizeGB": 50,
+  "imageUrl": "https://upload.wikimedia.org/wikipedia/en/0/0c/Witcher_3_cover_art.jpg",
+  "platform": "PC/PS5/Switch",
+  "genre": "RPG",
+  "description": "Become a monster slayer for hire and embark on an epic journey to track down the child of prophecy."
+},
+{
+  "_id": {
+    "$oid": "695268dd02796dadc10d84bb"
+  },
+  "title": "God of War Ragnarök",
+  "price": 69.99,
+  "developer": "Santa Monica Studio",
+  "sizeGB": 84,
+  "imageUrl": "https://upload.wikimedia.org/wikipedia/en/e/ee/God_of_War_Ragnar%C3%B6k_cover.jpg",
+  "platform": "PS5/PS4",
+  "genre": "Action-Adventure",
+  "description": "Kratos and Atreus must journey to each of the Nine Realms in search of answers as Asgardian forces prepare for a prophesied battle that will end the world."
+},
+{
+  "_id": {
+    "$oid": "695268dd02796dadc10d84bd"
+  },
+  "title": "Hades",
+  "price": 24.99,
+  "developer": "Supergiant Games",
+  "sizeGB": 15,
+  "imageUrl": "https://upload.wikimedia.org/wikipedia/en/c/cc/Hades_cover_art.jpg",
+  "platform": "PC/Switch/PS5",
+  "genre": "Roguelike",
+  "description": "Defy the god of the dead as you hack and slash out of the Underworld in this rogue-like dungeon crawler."
+},
+{
+  "_id": {
+    "$oid": "695268dd02796dadc10d84be"
+  },
+  "title": "Minecraft",
+  "price": 26.95,
+  "developer": "Mojang Studios",
+  "sizeGB": 2,
+  "imageUrl": "https://www.esrb.org/wp-content/uploads/2022/11/Minecraft-FEATURED-1024x576-_-R.jpg",
+  "platform": "PC/Mobile/Console",
+  "genre": "Sandbox / Survival",
+  "description": "Prepare for an adventure of limitless possibilities as you build, mine, battle mobs, and explore the ever-changing Minecraft landscape."
+},
+{
+  "_id": {
+    "$oid": "695268dd02796dadc10d84bf"
+  },
+  "title": "Stardew Valley",
+  "price": 14.99,
+  "developer": "ConcernedApe",
+  "sizeGB": 0.5,
+  "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/capsule_616x353.jpg?t=1754692865",
+  "platform": "PC/Switch/Mobile",
+  "genre": "Simulation",
+  "description": "You've inherited your grandfather's old farm plot in Stardew Valley. Armed with hand-me-down tools and a few coins, you set out to begin your new life."
+},
+{
+  "_id": {
+    "$oid": "695268dd02796dadc10d84c0"
+  },
+  "title": "The Legend of Zelda: Breath of the Wild",
+  "price": 59.99,
+  "developer": "Nintendo EPD",
+  "sizeGB": 14,
+  "imageUrl": "https://upload.wikimedia.org/wikipedia/en/c/c6/The_Legend_of_Zelda_Breath_of_the_Wild.jpg",
+  "platform": "Switch",
+  "genre": "Action-Adventure",
+  "description": "Step into a world of discovery, exploration, and adventure in a boundary-breaking new game in the acclaimed series."
+},
+{
+  "_id": {
+    "$oid": "695268dd02796dadc10d84c1"
+  },
+  "title": "Ghost of Tsushima",
+  "price": 59.99,
+  "developer": "Sucker Punch",
+  "sizeGB": 50,
+  "imageUrl": "https://upload.wikimedia.org/wikipedia/en/b/b6/Ghost_of_Tsushima.jpg",
+  "platform": "PS5/PS4/PC",
+  "genre": "Action-Adventure",
+  "description": "In the late 13th century, the Mongol empire has laid waste to entire nations along their campaign to conquer the East."
+},
+{
+  "_id": {
+    "$oid": "695268dd02796dadc10d84c3"
+  },
+  "title": "Spider-Man 2",
+  "price": 69.99,
+  "developer": "Insomniac Games",
+  "sizeGB": 111,
+  "imageUrl": "https://4kwallpapers.com/images/walls/thumbs_3t/11609.jpeg",
+  "platform": "PS5, PC",
+  "genre": "Action-Adventure",
+  "description": "The Spider-Men, Peter Parker and Miles Morales, enter new chapters in their lives as they balance their responsibilities as protectors of Marvel"
+},
+{
+  "_id": {
+    "$oid": "6952b82f50b7f39424bb240b"
+  },
+  "title": "Batman: Arkham Knight",
+  "price": 19.99,
+  "developer": "Rocksteady Studios",
+  "sizeGB": null,
+  "imageUrl": "https://static0.thegamerimages.com/wordpress/wp-content/uploads/sharedimages/2024/12/mixcollage-07-dec-2024-07-51-am-4123.jpg?q=50&fit=contain&w=480&dpr=1.5",
+  "platform": "PC, PS4, Xbox One",
+  "genre": "Action-Adventure",
+  "description": "The explosive finale to the Arkham series. Batman faces the ultimate threat against the city he is sworn to protect. The Scarecrow returns to unite an impressive roster of super villains, including Penguin, Two-Face, and Harley Quinn, to destroy The Dark Knight forever. For the first time in the franchise, players can explore Gotham City in the legendary Batmobile.",
+  "__v": 0
+}]

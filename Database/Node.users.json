@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "69523a02489702adc21c9ace"
+  },
+  "name": "ADMIN",
+  "email": "tahmidshams009@gmail.com",
+  "password": "$2b$10$n2km9gb6AUqE.8JoxT7HWu7DMfYIZimx8/t0SmtO/.VG6kxL0iXJC",
+  "role": "admin",
+  "isVerified": true,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6952b75b50b7f39424bb23d2"
+  },
+  "name": "Optimas",
+  "email": "tahmidshams19009@gmail.com",
+  "password": "$2b$10$sR9eqa0VCYbp/uSAB7BX4ebxRTS5NldENg4qfYMfyugSrRDE4l5Qy",
+  "role": "user",
+  "isVerified": true,
+  "__v": 0
+}]

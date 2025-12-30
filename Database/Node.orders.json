@@ -1,0 +1,82 @@
+[{
+  "_id": {
+    "$oid": "6952c4b5d470efb10369844a"
+  },
+  "userId": {
+    "$oid": "6952b75b50b7f39424bb23d2"
+  },
+  "items": [
+    {
+      "gameId": {
+        "$oid": "695268dd02796dadc10d84bb"
+      },
+      "title": "God of War Ragnarök",
+      "price": 69.99,
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/e/ee/God_of_War_Ragnar%C3%B6k_cover.jpg",
+      "_id": {
+        "$oid": "6952c4b5d470efb10369844b"
+      }
+    }
+  ],
+  "total": 69.99,
+  "status": "paid",
+  "createdAt": {
+    "$date": "2025-12-29T18:13:09.307Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-29T18:13:09.307Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6952c4f1d470efb103698461"
+  },
+  "userId": {
+    "$oid": "6952b75b50b7f39424bb23d2"
+  },
+  "items": [
+    {
+      "gameId": {
+        "$oid": "6952310733db4626ee7b4faf"
+      },
+      "title": "GTA V",
+      "price": 69.99,
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/a/a5/Grand_Theft_Auto_V.png",
+      "_id": {
+        "$oid": "6952c4f1d470efb103698462"
+      }
+    },
+    {
+      "gameId": {
+        "$oid": "6952369fe2cd1eae9150a09c"
+      },
+      "title": "Red Dead Redemption 2",
+      "price": 59.99,
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/4/44/Red_Dead_Redemption_II.jpg",
+      "_id": {
+        "$oid": "6952c4f1d470efb103698463"
+      }
+    },
+    {
+      "gameId": {
+        "$oid": "695268dd02796dadc10d84b8"
+      },
+      "title": "Elden Ring",
+      "price": 59.99,
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/b/b9/Elden_Ring_Box_art.jpg",
+      "_id": {
+        "$oid": "6952c4f1d470efb103698464"
+      }
+    }
+  ],
+  "total": 189.97,
+  "status": "paid",
+  "createdAt": {
+    "$date": "2025-12-29T18:14:09.245Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-29T18:14:09.245Z"
+  },
+  "__v": 0
+}]
