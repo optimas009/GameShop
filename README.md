@@ -5,7 +5,7 @@ A production-ready full-stack game store platform built using the MERN stack, fe
 ### 🎥 Video Demonstration
 Watch the demo here: [[Click to View](https://drive.google.com/drive/folders/1YlwzBJyO-U8C28E3TtsxlKjnicEOvQkM?usp=sharing)]
 
-<div align="center">
+<div align="left">
   <img src="screenshots/Home.png" width="500" alt="Home Page">
 </div>
 
