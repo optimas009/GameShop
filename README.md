@@ -54,4 +54,6 @@ Passwords hashed using bcrypt
 
 JWT tokens with expiration
 
+Email Verification Token Exipiration
+
 Backend-only secrets (never exposed to frontend)
