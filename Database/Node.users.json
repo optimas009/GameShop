@@ -1,22 +1,48 @@
 [{
   "_id": {
-    "$oid": "69523a02489702adc21c9ace"
+    "$oid": "695797fcbd3cfddb98aef8c8"
   },
-  "name": "ADMIN",
+  "name": "asd",
   "email": "tahmidshams009@gmail.com",
-  "password": "$2b$10$n2km9gb6AUqE.8JoxT7HWu7DMfYIZimx8/t0SmtO/.VG6kxL0iXJC",
+  "password": "$2b$10$CXlFt22NGuJC/pBKahUgAujZVld4DxJxRrByYfkzTnIfwBS1r.N9O",
   "role": "admin",
   "isVerified": true,
+  "emailVerifyAttempts": 0,
   "__v": 0
 },
 {
   "_id": {
-    "$oid": "6952b75b50b7f39424bb23d2"
+    "$oid": "6957c849fb85ac58e60a4deb"
   },
-  "name": "Optimas",
-  "email": "tahmidshams19009@gmail.com",
-  "password": "$2b$10$sR9eqa0VCYbp/uSAB7BX4ebxRTS5NldENg4qfYMfyugSrRDE4l5Qy",
+  "name": "Tanveer",
+  "email": "tanveer.shams05@gmail.com",
+  "password": "$2b$10$orIttC2RJopkdMN4mLlnUuFPa6Rl.T01NXRnzxHsaw/Ll6rmxjwwq",
   "role": "user",
   "isVerified": true,
+  "emailVerifyAttempts": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6957c8e1fb85ac58e60a4df3"
+  },
+  "name": "Arcane",
+  "email": "shams.tanveer05@gmail.com",
+  "password": "$2b$10$CKJpi2crg8hBne78HWjqtuxvgw9lBsq2aU1KLQxmyTJKE14rNxiNG",
+  "role": "user",
+  "isVerified": true,
+  "emailVerifyAttempts": 0,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6958d1ad45e6d389a29b2e91"
+  },
+  "name": "tahmid",
+  "email": "tahmidshams19@gmail.com",
+  "password": "$2b$10$nZLwJ4EUc0j4CQxo/uPbIuBayuN3BSRlvGeQ5OfNjtQBoB/f.EIku",
+  "role": "user",
+  "isVerified": true,
+  "emailVerifyAttempts": 0,
   "__v": 0
 }]

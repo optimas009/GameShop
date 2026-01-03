@@ -1,105 +1,165 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import "./CSS/Signup-Login.css";
 
-const isValidEmail = (email) => {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+const isValidEmail = (email) =>
+  /^[a-z0-9._%+-]+@[a-z0-9-]+\.[a-z]{2,}$/.test(String(email || "").trim());
+
+const validatePassword = (pw) => {
+  const password = String(pw || "");
+
+  if (password.length < 6) return "Password must be at least 6 characters long";
+  if (!/[A-Z]/.test(password)) return "Password must contain at least 1 uppercase letter";
+  if (!/[^A-Za-z0-9]/.test(password)) return "Password must contain at least 1 special character";
+  if (/(.)\1\1/.test(password))
+    return "Password cannot contain 3 consecutive identical characters (e.g., aaa, 111)";
+  return "";
 };
 
 const Signup = () => {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [emailError, setEmailError] = useState(""); // Email validation state
-    const [passError, setPassError] = useState("");   // Password validation state
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    useEffect(() => {
-        const token = localStorage.getItem("token");
-        if (token) navigate('/home');
-    }, [navigate]);
+  const [emailError, setEmailError] = useState("");
+  const [passError, setPassError] = useState("");
+  const [passTouched, setPassTouched] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-    // Handle email validation as user types
-    const handleEmailChange = (val) => {
-        setEmail(val);
-        if (val && !isValidEmail(val)) {
-            setEmailError("Please enter a valid email address");
-        } else {
-            setEmailError("");
-        }
-    };
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) navigate("/home", { replace: true });
+  }, [navigate]);
 
-    // Handle password validation as user types (Signup requires 6 chars)
-    const handlePasswordChange = (val) => {
-        setPassword(val);
-        if (val && val.length < 3) {
-            setPassError("Password must be at least 3 characters");
-        } else {
-            setPassError("");
-        }
-    };
+  const handleEmailChange = (val) => {
+    setEmail(val);
 
-    const datasshow = async () => {
-        // Final validation before sending to backend
-        if (!isValidEmail(email)) {
-            setEmailError("Enter a valid email address");
-            return;
-        }
+    if (/[A-Z]/.test(val)) {
+      setEmailError("Email must be all lowercase (no capital letters)");
+      return;
+    }
 
-        if (password.length < 6) {
-            setPassError("At least 6 characters required");
-            return;
-        }
+    setEmailError(val && !isValidEmail(val) ? "Please enter a valid email address" : "");
+  };
 
-        let response = await fetch('http://localhost:5000/register', {
-            method: 'post',
-            body: JSON.stringify({ name, email, password }),
-            headers: { 'Content-Type': 'application/json' }
-        });
+  const handlePasswordChange = (val) => {
+    setPassword(val);
+    if (!passTouched) setPassTouched(true);
 
-        let result = await response.json();
+    if (!val) {
+      setPassError("");
+      return;
+    }
+    setPassError(validatePassword(val));
+  };
 
-        if (response.status === 409) {
-            alert(result.message);
-            return;
-        }
+  const handleRegister = async () => {
+    if (!name.trim()) return alert("Name is required");
 
-        if (!response.ok) {
-            alert("Registration failed");
-            return;
-        }
+    const cleanEmail = String(email || "").trim().toLowerCase();
 
-        alert("Registered successfully. Please check your email to verify your account.");
-        navigate('/login');
-    };
+    if (/[A-Z]/.test(email)) {
+      setEmailError("Email must be all lowercase (no capital letters)");
+      return;
+    }
+    if (!isValidEmail(cleanEmail)) {
+      setEmailError("Enter a valid email address");
+      return;
+    }
 
-    return (
-        <div className="auth-container">
-            <div className="signup">
-                <h1>Signup</h1>
-                
-                <div className="input-group">
-                    <input className="sgbox" type="text"
-                        value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter Name" />
-                </div>
+    const pwMsg = validatePassword(password);
+    if (pwMsg) {
+      setPassTouched(true);
+      setPassError(pwMsg);
+      return;
+    }
 
-                <div className="input-group">
-                    <input className={`sgbox ${emailError ? "input-error" : ""}`} type="email"
-                        value={email} onChange={(e) => handleEmailChange(e.target.value)} placeholder="Enter Email" />
-                    {emailError && <span className="error-msg">{emailError}</span>}
-                </div>
+    setLoading(true);
+    try {
+      const res = await fetch("http://localhost:5000/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email: cleanEmail, password }),
+      });
 
-                <div className="input-group">
-                    <input className={`sgbox ${passError ? "input-error" : ""}`} type="password"
-                        value={password} onChange={(e) => handlePasswordChange(e.target.value)} placeholder="Enter Password" />
-                    {passError && <span className="error-msg">{passError}</span>}
-                </div>
+      const data = await res.json().catch(() => ({}));
 
-                <button onClick={datasshow} className="subbox" type="button">SignUp</button>
-            </div>
+      if (!res.ok) {
+        alert(data.message || "Registration failed");
+        return;
+      }
+
+      alert(data.message || "Code sent to your email");
+
+      // ✅ go to verify page with email (NO sessionStorage)
+      navigate("/verify", { replace: true, state: { email: cleanEmail } });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="auth-container">
+      <div className="signup">
+        <h1>Signup</h1>
+
+        <div className="input-group">
+          <input
+            className="sgbox"
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Enter Name"
+          />
         </div>
-    );
-}
+
+        <div className="input-group">
+          <input
+            className={`sgbox ${emailError ? "input-error" : ""}`}
+            type="email"
+            value={email}
+            onChange={(e) => handleEmailChange(e.target.value)}
+            placeholder="Enter Email"
+            autoComplete="username"
+          />
+          {emailError && <span className="error-msg">{emailError}</span>}
+        </div>
+
+        <div className="input-group">
+          <input
+            className={`sgbox ${passError ? "input-error" : ""}`}
+            type="password"
+            value={password}
+            onChange={(e) => handlePasswordChange(e.target.value)}
+            placeholder="Enter Password"
+            autoComplete="new-password"
+          />
+          {passTouched && passError && <span className="error-msg">{passError}</span>}
+          {(!passTouched || !passError) && (
+            <small className="password-hint">
+              Must be 6+ chars, 1 uppercase, 1 special, no “aaa/111”.
+            </small>
+          )}
+        </div>
+
+        <button onClick={handleRegister} className="subbox" type="button" disabled={loading}>
+          {loading ? "Sending..." : "SignUp"}
+        </button>
+
+        <button
+          onClick={() => navigate("/login")}
+          className="subbox"
+          type="button"
+          disabled={loading}
+          style={{ marginTop: 0, background: "#111", border: "1px solid #333" }}
+        >
+          Already have account? Login
+        </button>
+      </div>
+    </div>
+  );
+};
 
 export default Signup;

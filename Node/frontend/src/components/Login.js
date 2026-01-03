@@ -1,106 +1,130 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import "./CSS/Signup-Login.css";
 
-const isValidEmail = (email) => {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-};
+const isValidEmail = (email) =>
+  /^[a-z0-9._%+-]+@[a-z0-9-]+\.[a-z]{2,}$/.test(String(email || "").trim());
 
 const Login = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [emailError, setEmailError] = useState("");
-    const [passError, setPassError] = useState(""); // ⬅️ New state for password error
-    const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    useEffect(() => {
-        const token = localStorage.getItem("token");
-        if (token) navigate('/home');
-    }, [navigate]);
+  const [emailError, setEmailError] = useState("");
+  const [passError, setPassError] = useState("");
 
-    const handleEmailChange = (val) => {
-        setEmail(val);
-        if (val && !isValidEmail(val)) {
-            setEmailError("Please enter a valid email address");
-        } else {
-            setEmailError("");
-        }
-    };
+  const navigate = useNavigate();
 
-    // ⬅️ New handler for password validation
-    const handlePasswordChange = (val) => {
-        setPassword(val);
-        if (val && val.length < 3) {
-            setPassError("Password must be at least 3 characters");
-        } else {
-            setPassError("");
-        }
-    };
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) navigate("/home", { replace: true });
+  }, [navigate]);
 
-    const datasshow = async () => {
-        // Validation checks before sending request
-        if (!isValidEmail(email)) {
-            setEmailError("Enter a valid email address");
-            return;
-        }
+  const handleEmailChange = (val) => {
+    setEmail(val);
+    if (emailError) setEmailError("");
 
-        if (password.length < 3) {
-            setPassError("At least 3 characters required");
-            return;
-        }
+    if (/[A-Z]/.test(val)) {
+      setEmailError("Email must be all lowercase (no capital letters)");
+      return;
+    }
+    if (val && !isValidEmail(val)) setEmailError("Please enter a valid email address");
+  };
 
-        let response = await fetch("http://localhost:5000/login", {
-            method: "post",
-            body: JSON.stringify({ email, password }),
-            headers: { "Content-Type": "application/json" },
-        });
+  const handlePasswordChange = (val) => {
+    setPassword(val);
+    if (passError) setPassError("");
+  };
 
-        let result = await response.json();
+  const datasshow = async () => {
+    const cleanEmail = String(email || "").trim().toLowerCase();
 
-        if (!response.ok) {
-            localStorage.removeItem("token");
-            localStorage.removeItem("user");
-            alert(result.message || "Invalid email or password");
-            return;
-        }
+    if (/[A-Z]/.test(email)) {
+      setEmailError("Email must be all lowercase (no capital letters)");
+      return;
+    }
+    if (!isValidEmail(cleanEmail)) {
+      setEmailError("Enter a valid email address");
+      return;
+    }
+    if (!password) {
+      setPassError("Password is required");
+      return;
+    }
 
-        localStorage.setItem("user", JSON.stringify(result.user));
-        localStorage.setItem("token", result.token);
-        navigate("/home");
-    };
+    const response = await fetch("http://localhost:5000/login", {
+      method: "POST",
+      body: JSON.stringify({ email: cleanEmail, password }),
+      headers: { "Content-Type": "application/json" },
+    });
 
-    return (
-        <div className="auth-container">
-            <div className="signup">
-                <h1>Login</h1>
+    const result = await response.json().catch(() => ({}));
 
-                <div className="input-group">
-                    <input 
-                        className={`sgbox ${emailError ? "input-error" : ""}`} 
-                        type="email" 
-                        value={email} 
-                        onChange={(e) => handleEmailChange(e.target.value)} 
-                        placeholder="Enter Email"
-                    />
-                    {emailError && <span className="error-msg">{emailError}</span>}
-                </div>
+    if (!response.ok) {
+      if (
+        response.status === 403 &&
+        String(result.message || "").toLowerCase().includes("verify")
+      ) {
+        alert(result.message || "Please verify your email first");
+        navigate("/verify", { replace: true, state: { email: cleanEmail } });
+        return;
+      }
 
-                <div className="input-group">
-                    <input 
-                        className={`sgbox ${passError ? "input-error" : ""}`} // ⬅️ Conditional class
-                        type="password"
-                        value={password} 
-                        onChange={(e) => handlePasswordChange(e.target.value)} // ⬅️ Updated handler
-                        placeholder="Enter Password"
-                    />
-                    {/* ⬇️ Password Error message */}
-                    {passError && <span className="error-msg">{passError}</span>}
-                </div>
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+      alert(result.message || "Invalid email or password");
+      return;
+    }
 
-                <button onClick={datasshow} className="subbox" type="button">Login</button>
-            </div>
+    localStorage.setItem("user", JSON.stringify(result.user));
+    localStorage.setItem("token", result.token);
+
+    navigate("/home", { replace: true });
+  };
+
+  return (
+    <div className="auth-container">
+      <div className="signup">
+        <h1>Login</h1>
+
+        <div className="input-group">
+          <input
+            className={`sgbox ${emailError ? "input-error" : ""}`}
+            type="email"
+            value={email}
+            onChange={(e) => handleEmailChange(e.target.value)}
+            placeholder="Enter Email"
+            autoComplete="username"
+          />
+          {emailError && <span className="error-msg">{emailError}</span>}
         </div>
-    );
-}
+
+        <div className="input-group">
+          <input
+            className={`sgbox ${passError ? "input-error" : ""}`}
+            type="password"
+            value={password}
+            onChange={(e) => handlePasswordChange(e.target.value)}
+            placeholder="Enter Password"
+            autoComplete="current-password"
+          />
+          {passError && <span className="error-msg">{passError}</span>}
+        </div>
+
+        <button onClick={datasshow} className="subbox" type="button">
+          Login
+        </button>
+
+        <button
+          onClick={() => navigate("/signup")}
+          className="subbox"
+          type="button"
+          style={{ marginTop: 0, background: "#111", border: "1px solid #333" }}
+        >
+          Create account
+        </button>
+      </div>
+    </div>
+  );
+};
 
 export default Login;

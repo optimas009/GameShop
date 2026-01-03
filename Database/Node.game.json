@@ -33,9 +33,9 @@
   "title": "Cyberpunk 2077",
   "price": 49.99,
   "developer": "CD Projekt Red",
-  "sizeGB": 70,
+  "sizeGB": 69,
   "imageUrl": "https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg",
-  "platform": "PC/PS5/Xbox",
+  "platform": "PC/PS5/Xbox/NINTENDO",
   "genre": "Open World / RPG",
   "description": "\"Immerse yourself in Night City, a sprawling megalopolis obsessed with power, glamour, and body modification. Play as V, a mercenary outlaw going after a one-of-a-kind implant that is the key to immortality in this gritty, open-world action RPG.\"",
   "__v": 0
@@ -107,22 +107,9 @@
 },
 {
   "_id": {
-    "$oid": "695268dd02796dadc10d84bf"
-  },
-  "title": "Stardew Valley",
-  "price": 14.99,
-  "developer": "ConcernedApe",
-  "sizeGB": 0.5,
-  "imageUrl": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/capsule_616x353.jpg?t=1754692865",
-  "platform": "PC/Switch/Mobile",
-  "genre": "Simulation",
-  "description": "You've inherited your grandfather's old farm plot in Stardew Valley. Armed with hand-me-down tools and a few coins, you set out to begin your new life."
-},
-{
-  "_id": {
     "$oid": "695268dd02796dadc10d84c0"
   },
-  "title": "The Legend of Zelda: Breath of the Wild",
+  "title": "The Legend of Zelda: Breath of the Wild 2",
   "price": 59.99,
   "developer": "Nintendo EPD",
   "sizeGB": 14,
@@ -149,7 +136,7 @@
     "$oid": "695268dd02796dadc10d84c3"
   },
   "title": "Spider-Man 2",
-  "price": 69.99,
+  "price": 23.99,
   "developer": "Insomniac Games",
   "sizeGB": 111,
   "imageUrl": "https://4kwallpapers.com/images/walls/thumbs_3t/11609.jpeg",
@@ -159,15 +146,15 @@
 },
 {
   "_id": {
-    "$oid": "6952b82f50b7f39424bb240b"
+    "$oid": "6957cc8cfb85ac58e60a4e28"
   },
-  "title": "Batman: Arkham Knight",
-  "price": 19.99,
-  "developer": "Rocksteady Studios",
-  "sizeGB": null,
-  "imageUrl": "https://static0.thegamerimages.com/wordpress/wp-content/uploads/sharedimages/2024/12/mixcollage-07-dec-2024-07-51-am-4123.jpg?q=50&fit=contain&w=480&dpr=1.5",
-  "platform": "PC, PS4, Xbox One",
-  "genre": "Action-Adventure",
+  "title": "Tata",
+  "price": 122222,
+  "developer": "Guerrilla Games",
+  "sizeGB": 1024,
+  "imageUrl": "https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg",
+  "platform": "PC/PS5/Xbox",
+  "genre": "Simulation",
   "description": "The explosive finale to the Arkham series. Batman faces the ultimate threat against the city he is sworn to protect. The Scarecrow returns to unite an impressive roster of super villains, including Penguin, Two-Face, and Harley Quinn, to destroy The Dark Knight forever. For the first time in the franchise, players can explore Gotham City in the legendary Batmobile.",
   "__v": 0
 }]

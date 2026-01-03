@@ -1,19 +1,23 @@
 import { useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 
 const Logout = () => {
+  const navigate = useNavigate();
 
-    const location = useLocation();
-    const navigate = useNavigate();
+  useEffect(() => {
+    // ✅ clear session
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
 
-    useEffect(() => {
-        localStorage.removeItem("token");
-        localStorage.removeItem("user");
-        navigate("/home", { replace: true });
-        },[navigate, location]);
+    // optional: notify app (AdminComponent / others)
+    window.dispatchEvent(new Event("auth-changed"));
 
+    // ✅ redirect
+    navigate("/home", { replace: true });
+  }, [navigate]);
 
+  // ✅ must return something
+  return null;
 };
 
 export default Logout;

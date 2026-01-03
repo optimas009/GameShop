@@ -79,4 +79,299 @@
     "$date": "2025-12-29T18:14:09.245Z"
   },
   "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6953679a6356db25094513ff"
+  },
+  "userId": {
+    "$oid": "69523a02489702adc21c9ace"
+  },
+  "items": [
+    {
+      "gameId": {
+        "$oid": "695268dd02796dadc10d84b8"
+      },
+      "title": "Elden Ring",
+      "price": 59.99,
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/b/b9/Elden_Ring_Box_art.jpg",
+      "_id": {
+        "$oid": "6953679a6356db2509451400"
+      }
+    }
+  ],
+  "total": 59.99,
+  "status": "paid",
+  "createdAt": {
+    "$date": "2025-12-30T05:48:10.091Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-30T05:48:10.091Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6953dbb5b8c8410bf416929c"
+  },
+  "userId": {
+    "$oid": "6953db33b8c8410bf416927d"
+  },
+  "items": [
+    {
+      "gameId": {
+        "$oid": "6952310733db4626ee7b4faf"
+      },
+      "title": "GTA V",
+      "price": 69.99,
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/a/a5/Grand_Theft_Auto_V.png",
+      "_id": {
+        "$oid": "6953dbb5b8c8410bf416929d"
+      }
+    },
+    {
+      "gameId": {
+        "$oid": "6952369fe2cd1eae9150a09c"
+      },
+      "title": "Red Dead Redemption 2",
+      "price": 59.99,
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/4/44/Red_Dead_Redemption_II.jpg",
+      "_id": {
+        "$oid": "6953dbb5b8c8410bf416929e"
+      }
+    },
+    {
+      "gameId": {
+        "$oid": "69524a11023c5363520d750c"
+      },
+      "title": "Cyberpunk 2077",
+      "price": 49.99,
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg",
+      "_id": {
+        "$oid": "6953dbb5b8c8410bf416929f"
+      }
+    },
+    {
+      "gameId": {
+        "$oid": "695268dd02796dadc10d84b8"
+      },
+      "title": "Elden Ring",
+      "price": 59.99,
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/b/b9/Elden_Ring_Box_art.jpg",
+      "_id": {
+        "$oid": "6953dbb5b8c8410bf41692a0"
+      }
+    },
+    {
+      "gameId": {
+        "$oid": "695268dd02796dadc10d84bd"
+      },
+      "title": "Hades",
+      "price": 24.99,
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/c/cc/Hades_cover_art.jpg",
+      "_id": {
+        "$oid": "6953dbb5b8c8410bf41692a1"
+      }
+    }
+  ],
+  "total": 264.95,
+  "status": "paid",
+  "createdAt": {
+    "$date": "2025-12-30T14:03:33.288Z"
+  },
+  "updatedAt": {
+    "$date": "2025-12-30T14:03:33.288Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69576cf8a7e9b4fca9000290"
+  },
+  "userId": {
+    "$oid": "69576963a7e9b4fca90001ce"
+  },
+  "items": [
+    {
+      "gameId": {
+        "$oid": "6952369fe2cd1eae9150a09c"
+      },
+      "title": "Red Dead Redemption 2",
+      "price": 59.99,
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/4/44/Red_Dead_Redemption_II.jpg",
+      "_id": {
+        "$oid": "69576cf8a7e9b4fca9000291"
+      }
+    }
+  ],
+  "total": 59.99,
+  "status": "paid",
+  "createdAt": {
+    "$date": "2026-01-02T07:00:08.518Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-02T07:00:08.518Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "695775990bd9c4c2643cbac2"
+  },
+  "userId": {
+    "$oid": "69576993a7e9b4fca90001d3"
+  },
+  "items": [
+    {
+      "gameId": {
+        "$oid": "6952369fe2cd1eae9150a09c"
+      },
+      "title": "Red Dead Redemption 2",
+      "price": 59.99,
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/4/44/Red_Dead_Redemption_II.jpg",
+      "_id": {
+        "$oid": "695775990bd9c4c2643cbac3"
+      }
+    }
+  ],
+  "total": 59.99,
+  "status": "paid",
+  "createdAt": {
+    "$date": "2026-01-02T07:36:57.694Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-02T07:36:57.694Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69579865bd3cfddb98aef8f1"
+  },
+  "userId": {
+    "$oid": "695797fcbd3cfddb98aef8c8"
+  },
+  "items": [
+    {
+      "gameId": {
+        "$oid": "69579855bd3cfddb98aef8df"
+      },
+      "title": "xcz",
+      "price": 23,
+      "imageUrl": "czc",
+      "_id": {
+        "$oid": "69579865bd3cfddb98aef8f2"
+      }
+    }
+  ],
+  "total": 23,
+  "status": "paid",
+  "createdAt": {
+    "$date": "2026-01-02T10:05:25.337Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-02T10:05:25.337Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69579bd5c534232f1a3888c5"
+  },
+  "userId": {
+    "$oid": "695789128f09b76d5beb1f6c"
+  },
+  "items": [
+    {
+      "gameId": {
+        "$oid": "69524a11023c5363520d750c"
+      },
+      "title": "Cyberpunk 2077",
+      "price": 49.99,
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/9/9f/Cyberpunk_2077_box_art.jpg",
+      "_id": {
+        "$oid": "69579bd5c534232f1a3888c6"
+      }
+    }
+  ],
+  "total": 49.99,
+  "status": "paid",
+  "createdAt": {
+    "$date": "2026-01-02T10:20:05.716Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-02T10:20:05.716Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69579be2c534232f1a3888da"
+  },
+  "userId": {
+    "$oid": "695789128f09b76d5beb1f6c"
+  },
+  "items": [
+    {
+      "gameId": {
+        "$oid": "695268dd02796dadc10d84b8"
+      },
+      "title": "Elden Ring",
+      "price": 59.99,
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/b/b9/Elden_Ring_Box_art.jpg",
+      "_id": {
+        "$oid": "69579be2c534232f1a3888db"
+      }
+    },
+    {
+      "gameId": {
+        "$oid": "695268dd02796dadc10d84bb"
+      },
+      "title": "God of War Ragnarök",
+      "price": 69.99,
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/e/ee/God_of_War_Ragnar%C3%B6k_cover.jpg",
+      "_id": {
+        "$oid": "69579be2c534232f1a3888dc"
+      }
+    }
+  ],
+  "total": 129.98,
+  "status": "paid",
+  "createdAt": {
+    "$date": "2026-01-02T10:20:18.164Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-02T10:20:18.164Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6957a4a60f0e7ea3a1c05ffe"
+  },
+  "userId": {
+    "$oid": "695789128f09b76d5beb1f6c"
+  },
+  "items": [
+    {
+      "gameId": {
+        "$oid": "6952310733db4626ee7b4faf"
+      },
+      "title": "GTA V",
+      "price": 69.99,
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/a/a5/Grand_Theft_Auto_V.png",
+      "_id": {
+        "$oid": "6957a4a60f0e7ea3a1c05fff"
+      }
+    }
+  ],
+  "total": 69.99,
+  "status": "paid",
+  "createdAt": {
+    "$date": "2026-01-02T10:57:42.033Z"
+  },
+  "updatedAt": {
+    "$date": "2026-01-02T10:57:42.033Z"
+  },
+  "__v": 0
 }]

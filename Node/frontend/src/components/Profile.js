@@ -5,28 +5,40 @@ import AuthFetch from "./AuthFetch";
 
 const Profile = () => {
   const navigate = useNavigate();
-  const user = JSON.parse(localStorage.getItem("user")) || {};
 
+  const [me, setMe] = useState({ name: "", email: "" });
   const [library, setLibrary] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const loadLibrary = async () => {
+  const loadAll = async () => {
     try {
-      const res = await AuthFetch("/library");
-      if (!res) return;
-      if (res.status === 401) return;
+      // ✅ 1) load real user from server (NOT localStorage)
+      const meRes = await AuthFetch("/me");
+      if (!meRes) return;
+      if (meRes.status === 401) return;
 
-      const data = await res.json();
-      setLibrary(Array.isArray(data.library) ? data.library : []);
+      const meData = await meRes.json();
+      setMe({ name: meData?.name || "User", email: meData?.email || "" });
+
+      // (optional) keep local user updated
+      //localStorage.setItem("user", JSON.stringify(meData));
+
+      // ✅ 2) load library
+      const libRes = await AuthFetch("/library");
+      if (!libRes) return;
+      if (libRes.status === 401) return;
+
+      const libData = await libRes.json();
+      setLibrary(Array.isArray(libData.library) ? libData.library : []);
     } catch (e) {
-      alert("Failed to load library");
+      alert("Failed to load profile");
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    loadLibrary();
+    loadAll();
   }, []);
 
   return (
@@ -35,8 +47,8 @@ const Profile = () => {
         <h1 className="profile-title">Profile</h1>
 
         <div className="profile-card">
-          <div className="profile-name">{user.name || "User"}</div>
-          <div className="profile-email">{user.email || ""}</div>
+          <div className="profile-name">{me.name || "User"}</div>
+          <div className="profile-email">{me.email || ""}</div>
         </div>
 
         <h2 className="profile-subtitle">Your Library</h2>
@@ -64,8 +76,9 @@ const Profile = () => {
 
                 <div className="library-info">
                   <h3 className="library-title">{g.title}</h3>
-                  <p><b>Purchased for :</b> ${g.price}</p>
-
+                  <p>
+                    <b>Purchased for :</b> ${g.price}
+                  </p>
                 </div>
               </div>
             ))}

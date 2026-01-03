@@ -10,34 +10,34 @@ const Games = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    getGames();
-    loadOwned();
+    const fetchGames = async () => {
+      try {
+        const res = await fetch("http://localhost:5000/games");
+        if (!res.ok) return alert("Failed to fetch games");
+        const data = await res.json();
+        setGames(Array.isArray(data) ? data : []);
+      } catch {
+        alert("Something went wrong");
+      }
+    };
+
+    const fetchOwned = async () => {
+      const token = localStorage.getItem("token");
+      if (!token) return;
+
+      try {
+        const res = await AuthFetch("/library");
+        if (!res || res.status === 401) return;
+
+        const data = await res.json();
+        const library = Array.isArray(data.library) ? data.library : [];
+        setOwnedIds(new Set(library.map((x) => String(x.gameId))));
+      } catch { }
+    };
+
+    fetchGames();
+    fetchOwned();
   }, []);
-
-  const getGames = async () => {
-    try {
-      const res = await fetch("http://localhost:5000/games");
-      if (!res.ok) return alert("Failed to fetch games");
-      const data = await res.json();
-      setGames(Array.isArray(data) ? data : []);
-    } catch (e) {
-      alert("Something went wrong");
-    }
-  };
-
-  const loadOwned = async () => {
-    const token = localStorage.getItem("token");
-    if (!token) return;
-
-    try {
-      const res = await AuthFetch("/library");
-      if (!res || res.status === 401) return;
-      const data = await res.json();
-      const library = Array.isArray(data.library) ? data.library : [];
-      const set = new Set(library.map((x) => String(x.gameId)));
-      setOwnedIds(set);
-    } catch (e) {}
-  };
 
   const addToCart = async (gameId) => {
     const token = localStorage.getItem("token");

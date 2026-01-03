@@ -36,7 +36,7 @@ const AddGame = () => {
       sizeGB: form.sizeGB ? Number(form.sizeGB) : 0
     };
 
-    const res = await AuthFetch("/games", {
+    const res = await AuthFetch("/admin/games", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload)
@@ -44,10 +44,19 @@ const AddGame = () => {
 
     const data = await res.json().catch(() => ({}));
 
+    if (res.status === 401) return;
+
+    if (res.status === 403) {
+      alert("Admin access required");
+      navigate("/games", { replace: true });
+      return;
+    }
+
     if (!res.ok) {
       alert(data.message || "Failed to add game");
       return;
     }
+
 
     alert("Game added!");
     navigate("/games");

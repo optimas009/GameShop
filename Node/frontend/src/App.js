@@ -15,6 +15,10 @@ import UpdateGame from "./components/UpdateGame";
 import Home from "./components/Home";
 import Cart from "./components/Cart";
 import Profile from "./components/Profile"
+import SecretAdminLogin from "./components/SecretAdminLogin";
+import Verify from "./components/Verify";
+
+
 function App() {
   const navigate = useNavigate();
 
@@ -40,17 +44,18 @@ function App() {
           <Route path="/" element={<Navigate to="/home" replace />} />
           <Route path="/home" element={<Home />} />
           <Route path="/games" element={<Game />} />
-
+          <Route path="/secret" element={<SecretAdminLogin />} />
+          <Route path="/verify" element={<Verify />} />
+         
+          {/* ✅ Logged-in users (admin + user) */}
           <Route element={<PrivateComponent />}>
-            {/* ✅ cart protected */}
             <Route path="/cart" element={<Cart />} />
-
             <Route path="/profile" element={<Profile />} />
             <Route path="/logout" element={<Logout />} />
           </Route>
 
+          {/* ✅ Admin-only */}
           <Route element={<AdminComponent />}>
-            <Route path="/profile" element={<Profile />} />
             <Route path="/add" element={<AddGame />} />
             <Route path="/update" element={<ManageGames />} />
             <Route path="/update/:id" element={<UpdateGame />} />
@@ -58,6 +63,7 @@ function App() {
 
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
+          
         </Routes>
       </div>
 
