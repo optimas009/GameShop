@@ -1,0 +1,119 @@
+/* --- Navbar Container --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  height: 80px;
+  background: #000; /* Pure black */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 2px solid #1a1a1a; /* Subtle dark divider */
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* --- Left Side: Logo & Links --- */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.nav-logo {
+  font-size: 22px;
+  font-weight: 900;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  /* Neon glow effect */
+  text-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #888;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  padding: 10px 0;
+}
+
+/* Active Link: Neon Underline */
+.nav-link.active {
+  color: #fff;
+  border-bottom: 2px solid #6366f1;
+}
+
+.nav-link:hover {
+  color: #6366f1;
+}
+
+/* --- Right Side: Buttons --- */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-btn {
+  text-decoration: none;
+  padding: 10px 24px;
+  border-radius: 4px; /* Sharper corners for a gaming feel */
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.2s ease;
+}
+
+/* --- Button Variants --- */
+
+/* Login & Cart: Neon Blue */
+.nav-btn.solid, .nav-btn.cart {
+  background: #6366f1;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);
+}
+
+.nav-btn.solid:hover, .nav-btn.cart:hover {
+  background: #fff;
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+}
+
+/* Sign Up: Ghost Button */
+.nav-btn.outline {
+  color: #fff;
+  border: 1px solid #333;
+}
+
+.nav-btn.outline:hover {
+  border-color: #6366f1;
+  color: #6366f1;
+}
+
+/* Logout: Dark Red */
+.nav-btn.danger {
+  background: transparent;
+  color: #ff4b4b;
+  border: 1px solid #441111;
+}
+
+.nav-btn.danger:hover {
+  background: #ff4b4b;
+  color: #fff;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 850px) {
+  .nav-left .nav-link {
+    display: none; /* Keeps only the Logo and Right-side actions on small screens */
+  }
+  .navbar {
+    padding: 0 20px;
+  }
+}

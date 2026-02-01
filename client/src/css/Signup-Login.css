@@ -1,0 +1,277 @@
+/* ===== AUTH WRAPPER ===== */
+.signup {
+  list-style: none;
+  margin: 60px auto;
+  padding: 40px 30px;
+  width: 90%;
+  max-width: 400px;
+
+  /* Deep dark background with subtle border */
+  background: #000; 
+  border: 1px solid #222;
+  border-radius: 24px;
+  
+  /* Indigo glow to make it pop from the background */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 20px rgba(99, 102, 241, 0.05);
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Title Styling */
+.signup h1 {
+  margin: 0 0 10px;
+  text-align: center;
+  font-size: 32px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+}
+
+/* Inputs: The "Cyber-Field" Look */
+.sgbox {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid #333; /* Dark border */
+  outline: none;
+  font-size: 15px;
+  background: #111; /* Dark input background */
+  color: #fff; /* White text for contrast */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
+}
+
+.sgbox::placeholder {
+  color: #555;
+}
+
+.sgbox:focus {
+  border-color: #6366f1; /* Neon indigo border on focus */
+  background: #0a0a0a;
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.3);
+}
+
+/* Button: High-Voltage Indigo */
+.subbox {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  background: #6366f1; /* Main accent color */
+  color: #fff;
+  font-size: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 10px;
+}
+
+.subbox:hover {
+  background: #fff; /* Flip to white on hover */
+  color: #a53b3b;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4);
+}
+
+.subbox:active {
+  transform: translateY(-1px);
+  filter: brightness(0.9);
+}
+
+
+.Forgot {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  color: #89899c;
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.Forgot:hover {
+  color: #80352a;
+  text-decoration: underline;
+  transform: translateY(-3px);
+}
+
+/* Small responsive */
+@media (max-width: 480px) {
+  .signup {
+    margin: 40px auto;
+    padding: 30px 20px;
+    border-radius: 0; /* Optional: square corners on tiny mobile */
+    border: none;
+    background: transparent; /* Cleaner on small mobile */
+    box-shadow: none;
+  }
+}
+
+/* Container for input + error to keep spacing consistent */
+.input-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 10px;
+}
+
+/* Red text style */
+.error-msg {
+    color: #ff4b4b;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: 5px;
+    /* Gentle entry animation */
+    animation: slideIn 0.2s ease-out;
+}
+
+/* Border turns red when there is an error */
+.sgbox.input-error {
+    border-color: #ff4b4b !important;
+    box-shadow: 0 0 10px rgba(255, 75, 75, 0.1);
+}
+
+.password-hint {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  opacity: 0.8;
+  color: #fff; /* keep it readable */
+}
+
+/* ---------- Top-center modal overlay ---------- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 28px; /* top center */
+  z-index: 9999;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(6px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;     /* ✅ center vertically */
+  padding: 16px;           /* ✅ small padding only */
+
+  z-index: 9999;
+}
+
+.msg-modal {
+  width: 92%;
+  max-width: 420px;
+  background: #000;
+  border: 1px solid #222;
+  border-radius: 20px;
+  padding: 22px 20px;
+  max-height: 85vh;
+  overflow: auto;
+  box-shadow:
+    0 20px 55px rgba(0, 0, 0, 0.65),
+    0 0 26px rgba(99, 102, 241, 0.15);
+  animation: popupDrop 0.18s ease-out;
+}
+
+.msg-modal.success { border-top: 4px solid #6366f1; }
+.msg-modal.error   { border-top: 4px solid #ff4b4b; }
+.msg-modal.confirm { border-top: 4px solid #f59e0b; }
+
+.msg-modal h3 {
+  margin: 0 0 10px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.msg-modal p {
+  margin: 0 0 18px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #cfcfe6;
+  text-align: center;
+}
+
+.msg-modal button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: #6366f1;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.msg-modal button:hover {
+  background: #fff;
+  color: #a53b3b;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.35);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.modal-actions .modal-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: #6366f1;
+  color: #fff;
+  font-weight: 800;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.modal-actions .modal-btn.danger {
+  background: #dc2626;
+}
+
+.modal-actions .modal-btn.danger:hover {
+  background: #ef4444;
+  color: #fff;
+}
+
+
+
+/* animation */
+@keyframes popupDrop {
+  from {
+    transform: translateY(-12px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+

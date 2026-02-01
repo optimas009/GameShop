@@ -1,0 +1,245 @@
+.ad-page {
+  background: #0a0a0a;
+  min-height: 100vh;
+  padding: 60px 20px;
+  color: #fff;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.ad-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ad-title {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  text-shadow: 0 0 15px rgba(99, 102, 241, 0.35);
+}
+
+.ad-sub {
+  text-align: center;
+  color: #888;
+  margin-bottom: 30px;
+}
+
+.ad-empty {
+  background: #111;
+  border: 1px dashed #333;
+  border-radius: 16px;
+  padding: 50px;
+  text-align: center;
+  color: #666;
+  font-weight: 700;
+}
+
+.ad-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.ad-card {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.ad-card.open {
+  border-color: #6366f1;
+  box-shadow: 0 12px 35px rgba(0,0,0,0.55);
+}
+
+.ad-card-header {
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  padding: 18px 18px;
+  display: flex;
+  gap: 18px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ad-user {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 260px;
+  text-align: left;
+}
+
+.ad-name {
+  font-size: 18px;
+  font-weight: 900;
+  color: #fff;
+}
+
+.ad-email {
+  font-size: 12px;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.ad-metrics {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.ad-metric {
+  background: #0f0f0f;
+  border: 1px solid #222;
+  padding: 10px 12px;
+  border-radius: 12px;
+  min-width: 140px;
+  text-align: center;
+}
+
+.ad-metric-label {
+  font-size: 11px;
+  color: #777;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 800;
+}
+
+.ad-metric-value {
+  font-size: 16px;
+  font-weight: 900;
+  color: #6366f1;
+  margin-top: 4px;
+}
+
+.ad-body {
+  border-top: 1px solid #222;
+  padding: 18px;
+  background: linear-gradient(to bottom, #111, #0a0a0a);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ad-game {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 14px;
+  background: #0f0f0f;
+  border: 1px solid #222;
+  border-radius: 16px;
+  padding: 14px;
+}
+
+.ad-thumb {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  border-radius: 14px;
+  background: #000;
+  border: 1px solid #222;
+}
+
+.ad-thumb.ph {
+  background: #000;
+}
+
+.ad-game-title {
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.ad-game-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ad-game-qty {
+  font-size: 13px;
+  color: #cfcfcf;
+}
+
+.ad-game-qty span {
+  color: #fff;
+  font-weight: 900;
+}
+
+.ad-game-meta {
+  margin-top: 4px;
+  color: #777;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.ad-keys {
+  margin-top: 12px;
+}
+
+.ad-keys-title {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #6366f1;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
+
+.ad-keys-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ad-key-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+.ad-key {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: #cfd2ff;
+}
+
+.ad-key-status {
+  font-size: 11px;
+  font-weight: 900;
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 1px solid #222;
+}
+
+.ad-key-status.used {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.25);
+  color: #ef4444;
+}
+
+.ad-key-status.unused {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.25);
+  color: #10b981;
+}
+
+.ad-muted {
+  color: #777;
+  font-weight: 700;
+}

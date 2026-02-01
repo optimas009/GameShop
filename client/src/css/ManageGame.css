@@ -1,0 +1,139 @@
+/* Admin actions container uses the same spacing logic */
+.game-actions {
+  margin-top: auto;
+  display: flex;
+  gap: 12px;
+}
+
+/* Button same style vibe as Add to Cart */
+.admin-action-btn {
+  flex: 1;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: #2a2a2a;
+  color: #fff;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.admin-action-btn:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* Danger button like your red style */
+.admin-action-btn.danger {
+  background: rgba(255, 75, 75, 0.15);
+  border: 1px solid rgba(255, 75, 75, 0.35);
+  color: #ff4b4b;
+}
+
+.admin-action-btn.danger:hover {
+  background: #ff4b4b;
+  border-color: #ff4b4b;
+  color: #fff;
+}
+/* ---------- POPUP (ManageGame.css) ---------- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 38px;
+  z-index: 9999;
+}
+
+.msg-modal {
+  width: 92%;
+  max-width: 420px;
+  background: #000;
+  border: 1px solid #222;
+  border-radius: 20px;
+  padding: 22px 20px;
+  box-shadow:
+    0 20px 55px rgba(0, 0, 0, 0.65),
+    0 0 26px rgba(99, 102, 241, 0.15);
+  animation: popupDrop 0.18s ease-out;
+}
+
+.msg-modal.success { border-top: 4px solid #6366f1; }
+.msg-modal.error   { border-top: 4px solid #ff4b4b; }
+.msg-modal.confirm { border-top: 4px solid #f59e0b; } /* warning */
+
+.msg-modal h3 {
+  margin: 0 0 10px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.msg-modal p {
+  margin: 0 0 18px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #cfcfe6;
+  text-align: center;
+}
+
+.msg-modal button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: #6366f1;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.msg-modal button:hover {
+  background: #fff;
+  color: #a53b3b;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.35);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.modal-actions .modal-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: #6366f1;
+  color: #fff;
+  font-weight: 800;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.modal-actions .modal-btn.danger {
+  background: #dc2626;
+}
+
+.modal-actions .modal-btn.danger:hover {
+  background: #ef4444;
+  color: #fff;
+}
+
+@keyframes popupDrop {
+  from { transform: translateY(-12px); opacity: 0; }
+  to   { transform: translateY(0px); opacity: 1; }
+}
