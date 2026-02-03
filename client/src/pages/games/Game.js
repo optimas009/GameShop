@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import AuthFetch from "../../services/AuthFetch";
 import MediaUtil from "../../services/MediaUtil"; 
 
+import { API_BASE_URL } from "../../services/AuthFetch";
+
 import "../../css/Games.css";
 
 const Games = () => {
@@ -36,7 +38,7 @@ const Games = () => {
   useEffect(() => {
     const fetchGames = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/games");
+        const res = await fetch(`${API_BASE_URL}/games`);
 
 
         if (!res.ok) {

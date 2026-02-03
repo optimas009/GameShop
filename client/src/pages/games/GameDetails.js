@@ -3,6 +3,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import AuthFetch from "../../services/AuthFetch";
 import MediaUtil from "../../services/MediaUtil"; 
 
+import { API_BASE_URL } from "../../services/AuthFetch";
+
 import "../../css/GameDetails.css";
 
 const GameDetails = () => {
@@ -49,7 +51,7 @@ const GameDetails = () => {
   useEffect(() => {
     const fetchGame = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/games/${id}`);
+        const res = await fetch(`${API_BASE_URL}/games/${id}`);
         const data = await res.json().catch(() => ({}));
 
         if (!res.ok) {

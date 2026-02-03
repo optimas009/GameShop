@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { API_BASE_URL } from "../../services/AuthFetch";
+
 import "../../css/Signup-Login.css";
 
 const isValidEmail = (email) =>
@@ -114,7 +116,7 @@ const Signup = () => {
 
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/api/register", {
+      const res = await fetch(`${API_BASE_URL}/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email: cleanEmail, password }),
