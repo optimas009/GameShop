@@ -24,9 +24,9 @@ const ResetPassword = () => {
 
   // Popup 
   const [message, setMessage] = useState("");
-  const [messageType, setMessageType] = useState(""); 
-  const [nextRoute, setNextRoute] = useState(""); 
-  const [pendingEmail, setPendingEmail] = useState(""); 
+  const [messageType, setMessageType] = useState("");
+  const [nextRoute, setNextRoute] = useState("");
+  const [pendingEmail, setPendingEmail] = useState("");
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -62,7 +62,7 @@ const ResetPassword = () => {
 
     if (!route) return;
 
-    
+
     if (route === "/verify" && e) {
       navigate("/verify", { replace: true, state: { email: e } });
       return;
@@ -125,12 +125,14 @@ const ResetPassword = () => {
       const data = await res.json().catch(() => ({}));
 
       if (!res.ok) {
-        const msg = data.message || "Reset failed";
-        const lower = msg.toLowerCase();
+        const msg = data.message || "Invalid or expired reset code";
 
-        if (lower.includes("password")) setPasswordError(msg);
-        else if (lower.includes("code")) setCodeError(msg);
-        else setCodeError(msg);
+
+        if (msg.toLowerCase().includes("password")) {
+          setPasswordError(msg);
+        } else {
+          setCodeError(msg);
+        }
 
         openPopup("error", msg);
         return;
@@ -182,7 +184,7 @@ const ResetPassword = () => {
       }
 
       if (!res.ok) {
-        openPopup("error", data.message || "Failed to resend code. Try again.");
+        openPopup("error", data.message || "Please wait before requesting another code.");
         return;
       }
 

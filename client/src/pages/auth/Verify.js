@@ -23,8 +23,8 @@ const Verify = () => {
 
   // POPUP 
   const [message, setMessage] = useState("");
-  const [messageType, setMessageType] = useState(""); 
-  const [nextRoute, setNextRoute] = useState(""); 
+  const [messageType, setMessageType] = useState("");
+  const [nextRoute, setNextRoute] = useState("");
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -101,12 +101,11 @@ const Verify = () => {
       const data = await res.json().catch(() => ({}));
 
       if (!res.ok) {
-        setCodeError(data.message || "Invalid code");
         openPopup("error", data.message || "Invalid verification code.");
         return;
       }
 
-      
+
       openPopup("success", data.message || "Email verified successfully.", "/login");
     } catch (err) {
       openPopup("error", "Network error. Please try again.");
@@ -143,7 +142,8 @@ const Verify = () => {
       const data = await res.json().catch(() => ({}));
 
       if (!res.ok) {
-        openPopup("error", data.message || "Could not resend code. Try again.");
+        // backend message already includes "Please wait 18s..."
+        openPopup("error", data.message || "Please wait before requesting another code.");
         return;
       }
 

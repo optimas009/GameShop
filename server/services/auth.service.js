@@ -12,10 +12,13 @@ const { validatePassword } = require("../helpers/password.helper");
 const EMAIL_VERIFY_EXPIRES_MS = 5 * 60 * 1000; // 5 minutes
 const EMAIL_VERIFY_MAX_ATTEMPTS = 5;
 
+const EMAIL_VERIFY_RESEND_COOLDOWN_MS = 30 * 1000; // 30 second
+
 const RESET_EXPIRES_MS = 5 * 60 * 1000;        // 5 minutes
 const RESET_MAX_ATTEMPTS = 5;
 
-const RESET_RESEND_COOLDOWN_MS = 1 * 1000;     // 1 second
+const RESET_RESEND_COOLDOWN_MS = 30 * 1000;     // 30 second
+
 
 const EMAIL_REGEX = /^[a-z0-9._%+-]+@[a-z0-9-]+\.[a-z]{2,}$/;
 
@@ -62,21 +65,24 @@ async function register(body) {
         emailVerifyExpires: new Date(Date.now() + EMAIL_VERIFY_EXPIRES_MS),
         emailVerifyAttempts: 0,
     });
+    newUser.emailVerifyLastSentAt = new Date(); 
 
     await newUser.save();
+
+    let emailSent = true;
 
     try {
         await sendVerificationEmail(email, code);
     } catch (e) {
+        emailSent = false;
         console.error("EMAIL SEND FAILED:", e.message);
-        await User.deleteOne({ email });
-        return out(400, {
-            message: "Email address is not deliverable. Please use a real email.",
-        });
+        // IMPORTANT: Do NOT delete the user and do NOT block signup.
     }
 
     return out(200, {
-        message: "Registered successfully. Check your email for the verification code.",
+        message: emailSent
+            ? "Registered successfully. Check your email for the verification code."
+            : "Registered successfully, but we could not send email right now. Please use 'Resend code' in a moment.",
     });
 }
 
@@ -110,9 +116,10 @@ async function verifyEmailCode(body) {
     }
 
     user.isVerified = true;
-    user.emailVerifyCode = undefined;
-    user.emailVerifyExpires = undefined;
+    user.emailVerifyCode = null;
+    user.emailVerifyExpires = null;
     user.emailVerifyAttempts = 0;
+    user.emailVerifyLastSentAt = null;
 
     await user.save();
 
@@ -125,22 +132,42 @@ async function resendVerificationCode(body) {
 
     const user = await User.findOne({ email });
 
-    if (!user) {
-        return out(200, { message: "If this email exists, a code was sent." });
-    }
-
+    if (!user) return out(200, { message: "If this email exists, a code was sent." });
     if (user.isVerified) return out(200, { message: "Already verified" });
+
+    // cooldown
+    if (user.emailVerifyLastSentAt) {
+        const diff = Date.now() - new Date(user.emailVerifyLastSentAt).getTime();
+        if (diff < EMAIL_VERIFY_RESEND_COOLDOWN_MS) {
+            const waitSec = Math.ceil((EMAIL_VERIFY_RESEND_COOLDOWN_MS - diff) / 1000);
+            return out(429, {
+                message: `Please wait ${waitSec}s before requesting another code.`,
+            });
+        }
+    }
 
     const code = generateOtpCode();
     user.emailVerifyCode = hashOtp(code);
     user.emailVerifyExpires = new Date(Date.now() + EMAIL_VERIFY_EXPIRES_MS);
     user.emailVerifyAttempts = 0;
+    user.emailVerifyLastSentAt = new Date();
 
     await user.save();
-    await sendVerificationEmail(email, code);
+    let sent = true;
+    try {
+        await sendVerificationEmail(email, code);
+    } catch (e) {
+        sent = false;
+        console.error("RESEND EMAIL FAILED:", e.message);
+    }
 
-    return out(200, { message: "Verification code resent" });
+    return out(200, {
+        message: sent
+            ? "Verification code resent"
+            : "We generated a new code, but email could not be sent right now. Please try again shortly.",
+    });
 }
+
 
 /* ===================== FORGOT PASSWORD ===================== */
 

@@ -17,9 +17,9 @@ const ForgotPassword = () => {
 
   //Popup 
   const [message, setMessage] = useState("");
-  const [messageType, setMessageType] = useState(""); 
-  const [nextRoute, setNextRoute] = useState(""); 
-  const [pendingEmail, setPendingEmail] = useState(""); 
+  const [messageType, setMessageType] = useState("");
+  const [nextRoute, setNextRoute] = useState("");
+  const [pendingEmail, setPendingEmail] = useState("");
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -111,7 +111,7 @@ const ForgotPassword = () => {
       }
 
       if (!res.ok) {
-        openPopup("error", data.message || "Failed to send code. Please try again.");
+        openPopup("error", data.message || "Please wait before requesting another code.");
         return;
       }
 
@@ -132,7 +132,7 @@ const ForgotPassword = () => {
   return (
 
     <div className="auth-container">
-      
+
       {/*  modal popup */}
       {message && (
         <div className="overlay" role="dialog" aria-modal="true">
