@@ -1,3 +1,6 @@
+
+[![LIVE DEMONSTRATION](https://img.shields.io/badge/LIVE%20DEMONSTRATION-CLICK%20HERE-brightgreen?style=for-the-badge)](https://game-vault-neon.vercel.app/)
+
 # 🎮 GameVault  
 **Full-Stack MERN Game Store & Community Platform**
 
