@@ -20,6 +20,13 @@ app.use(
 app.use(express.json());
 app.disable("etag");
 
+
+// Health check 
+app.get("/health", (req, res) => {
+  res.status(200).send("ok");
+});
+
+
 // DB
 connectDB();
 
