@@ -1,4 +1,5 @@
-import "../css/Footer.css";
+import "../../Footer.css";
+
 import {
   FaGithub,
   FaFacebookF,
