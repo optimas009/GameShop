@@ -6,7 +6,7 @@
 html, body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;  /* removes right-side horizontal scroll */
+  overflow-x: hidden;
   background: #e9e9e9;
 }
 
@@ -16,12 +16,13 @@ html, body {
 
 /* ===== APP LAYOUT ===== */
 .App {
-  min-height: 100vh;            /* full height */
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;       /* nav -> content -> footer */
+  flex-direction: column;
 }
 
-/* push footer to bottom */
+/* ✅ push all pages below fixed navbar */
 .app-content {
   flex: 1;
+  padding-top: var(--nav-h, 80px);
 }

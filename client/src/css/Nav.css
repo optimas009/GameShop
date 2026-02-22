@@ -1,10 +1,16 @@
 /* Nav.css */
+
+/* ✅ One source of truth for navbar height */
+:root {
+  --nav-h: 80px;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  height: 80px;
+  height: var(--nav-h);
   padding: 0 40px;
   background: #000;
 
@@ -22,7 +28,10 @@
   display: flex;
   align-items: center;
   gap: 35px;
+
+  /* ✅ allows shrinking */
   min-width: 0;
+  flex: 1;
 }
 
 .nav-logo {
@@ -33,6 +42,12 @@
   letter-spacing: 2px;
   text-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
   text-decoration: none;
+
+  /* ✅ prevents logo from pushing everything off-screen */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 210px;
 }
 
 .nav-logo:visited {
@@ -43,6 +58,9 @@
   display: flex;
   align-items: center;
   gap: 35px;
+
+  /* ✅ allows shrinking if needed */
+  min-width: 0;
 }
 
 .navbar .nav-link,
@@ -76,6 +94,8 @@
   display: flex;
   align-items: center;
   gap: 15px;
+
+  /* ✅ do not shrink right side */
   flex-shrink: 0;
 }
 
@@ -141,6 +161,7 @@
   color: #fff !important;
 }
 
+/* ✅ Hamburger */
 .nav-hamburger {
   display: none;
   background: transparent;
@@ -148,6 +169,7 @@
   padding: 10px;
   border-radius: 6px;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 .nav-hamburger .bar {
@@ -158,11 +180,12 @@
   margin: 5px 0;
 }
 
+/* ✅ Mobile menu */
 .nav-mobile-menu {
   display: none;
 
   position: fixed;
-  top: 80px;
+  top: var(--nav-h); /* ✅ was 80px */
   left: 0;
   right: 0;
 
@@ -198,5 +221,13 @@
 
   .navbar {
     padding: 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-logo {
+    max-width: 150px;
+    font-size: 18px;
+    letter-spacing: 1px;
   }
 }
