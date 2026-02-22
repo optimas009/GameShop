@@ -1,47 +1,33 @@
-/* ===== GLOBAL RESET ===== */
+/* index.css — Global */
 * {
   box-sizing: border-box;
 }
 
-/* ✅ Prevent layout shift when scrollbar appears */
 html {
-  overflow-y: scroll;        /* fallback */
-  scrollbar-gutter: stable;  /* best modern fix */
+  overflow-y: scroll;
+  scrollbar-gutter: stable;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
   background: #e9e9e9;
 }
 
-#root {
-  min-height: 100vh;
-}
-
-/* ===== APP LAYOUT ===== */
-.App {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-/* push footer to bottom */
-.app-content {
-  flex: 1;
-}
-
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+#root {
+  min-height: 100vh;
+}
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }

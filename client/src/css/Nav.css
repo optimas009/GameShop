@@ -1,7 +1,4 @@
-/* =========================
-   NAVBAR (STICKY - NO OVERLAP)
-   ========================= */
-
+/* Nav.css — Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -11,7 +8,7 @@
   height: 80px;
   background: #000;
 
-  position: fixed;    
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -21,7 +18,6 @@
   font-family: "Inter", system-ui, sans-serif;
 }
 
-/* --- Left Side --- */
 .nav-left {
   display: flex;
   align-items: center;
@@ -29,7 +25,6 @@
   min-width: 0;
 }
 
-/* Clickable Logo (NavLink) */
 .nav-logo {
   font-size: 22px;
   font-weight: 900;
@@ -49,14 +44,12 @@
   text-decoration: none;
 }
 
-/* Desktop links wrapper */
 .nav-desktop-links {
   display: flex;
   align-items: center;
   gap: 35px;
 }
 
-/* --- Links (FORCE no purple / no underline ever) --- */
 .navbar .nav-link,
 .navbar .nav-link:visited,
 .navbar .nav-link:hover,
@@ -75,7 +68,6 @@
   padding: 10px 0;
 }
 
-/* Active Link */
 .navbar .nav-link.active {
   color: #fff !important;
   border-bottom: 2px solid #6366f1;
@@ -85,7 +77,6 @@
   color: #6366f1 !important;
 }
 
-/* --- Right Side --- */
 .nav-right {
   display: flex;
   align-items: center;
@@ -98,7 +89,6 @@
   gap: 15px;
 }
 
-/* --- Buttons --- */
 .nav-btn {
   text-decoration: none !important;
   padding: 10px 24px;
@@ -156,9 +146,6 @@
   color: #fff !important;
 }
 
-/* =========================
-   HAMBURGER (MOBILE ONLY)
-   ========================= */
 .nav-hamburger {
   display: none;
   background: transparent;
@@ -177,13 +164,10 @@
   margin: 5px 0;
 }
 
-/* =========================
-   MOBILE MENU (DROPDOWN)
-   ========================= */
 .nav-mobile-menu {
   display: none;
 
-  position: fixed; /* ✅ still fine for mobile dropdown */
+  position: fixed;
   top: 80px;
   left: 0;
   right: 0;
@@ -191,7 +175,7 @@
   background: rgba(0, 0, 0, 0.98);
   border-bottom: 2px solid #1a1a1a;
   padding: 18px 20px;
-  z-index: 3100;
+  z-index: 5100;
 
   flex-direction: column;
   gap: 14px;
@@ -219,12 +203,9 @@
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.55);
-  z-index: 3050;
+  z-index: 5050;
 }
 
-/* =========================
-   RESPONSIVE
-   ========================= */
 @media (max-width: 850px) {
   .nav-desktop-links,
   .nav-desktop-actions {
