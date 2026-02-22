@@ -1,5 +1,7 @@
+/* =========================
+   NAVBAR (STICKY - NO OVERLAP)
+   ========================= */
 
-/* --- Navbar Container --- */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -9,10 +11,8 @@
   height: 80px;
   background: #000;
 
-  position: fixed; /* ✅ always visible */
+  position: sticky;   /* ✅ stays visible while scrolling */
   top: 0;
-  left: 0;
-  width: 100%;
   z-index: 3000;
 
   border-bottom: 2px solid #1a1a1a;
@@ -73,7 +73,7 @@
   padding: 10px 0;
 }
 
-/* Active Link: Neon Underline (only when .active exists) */
+/* Active Link */
 .navbar .nav-link.active {
   color: #fff !important;
   border-bottom: 2px solid #6366f1;
@@ -90,7 +90,6 @@
   gap: 15px;
 }
 
-/* Desktop actions wrapper */
 .nav-desktop-actions {
   display: flex;
   align-items: center;
@@ -118,7 +117,6 @@
   text-decoration: none !important;
 }
 
-/* Login & Cart: Neon Blue */
 .nav-btn.solid,
 .nav-btn.cart {
   background: #6366f1;
@@ -134,7 +132,6 @@
   box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
 }
 
-/* Sign Up: Ghost Button */
 .nav-btn.outline {
   color: #fff !important;
   border: 1px solid #333;
@@ -146,7 +143,6 @@
   color: #6366f1 !important;
 }
 
-/* Logout: Dark Red */
 .nav-btn.danger {
   background: transparent;
   color: #ff4b4b !important;
@@ -162,14 +158,12 @@
    HAMBURGER (MOBILE ONLY)
    ========================= */
 .nav-hamburger {
-  display: none; /* show only on mobile */
+  display: none;
   background: transparent;
   border: 1px solid #222;
   padding: 10px;
   border-radius: 6px;
   cursor: pointer;
-
-  /* keep it on the RIGHT */
   margin-left: auto;
 }
 
@@ -185,10 +179,10 @@
    MOBILE MENU (DROPDOWN)
    ========================= */
 .nav-mobile-menu {
-  display: none; /* desktop hidden */
+  display: none;
 
-  position: fixed; /* IMPORTANT: doesn't push layout */
-  top: 80px;       /* below navbar */
+  position: fixed; /* ✅ still fine for mobile dropdown */
+  top: 80px;
   left: 0;
   right: 0;
 
@@ -201,12 +195,10 @@
   gap: 14px;
 }
 
-/* open state */
 .nav-mobile-menu.open {
   display: flex;
 }
 
-/* make mobile links look like your theme */
 .nav-mobile-menu .nav-link,
 .nav-mobile-menu .nav-link:visited {
   display: block;
@@ -214,7 +206,6 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-/* Mobile buttons block */
 .nav-mobile-actions {
   display: flex;
   gap: 12px;
@@ -222,25 +213,22 @@
   flex-wrap: wrap;
 }
 
-/* Overlay behind menu */
 .nav-overlay {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.55);
-  z-index: 3050; /* between navbar (3000) and menu (3100) */
+  z-index: 3050;
 }
 
 /* =========================
    RESPONSIVE
    ========================= */
 @media (max-width: 850px) {
-  /* Hide desktop links + actions */
   .nav-desktop-links,
   .nav-desktop-actions {
     display: none;
   }
 
-  /* Show hamburger */
   .nav-hamburger {
     display: inline-block;
   }
