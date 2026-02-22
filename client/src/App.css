@@ -1,4 +1,4 @@
-/* App.css — Layout */
+/* App.css */
 .App {
   min-height: 100vh;
   display: flex;
@@ -8,5 +8,5 @@
 .app-content {
   flex: 1;
   padding-top: 80px;
-  overflow: visible;  
+  overflow: visible;
 }

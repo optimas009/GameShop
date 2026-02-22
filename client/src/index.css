@@ -1,10 +1,10 @@
-/* index.css — Global */
+/* index.css */
 * {
   box-sizing: border-box;
 }
 
 html {
-  overflow-y: scroll;
+  overflow-y: auto;
   scrollbar-gutter: stable;
 }
 
