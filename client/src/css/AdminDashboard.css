@@ -1,7 +1,10 @@
 .ad-page {
   background: #0a0a0a;
   min-height: 100vh;
-  padding: 60px 20px;
+
+  /* ✅ normal spacing (navbar already offset by .app-content) */
+  padding: 24px 20px 60px;
+
   color: #fff;
   font-family: "Inter", system-ui, sans-serif;
 }
@@ -47,31 +50,39 @@
   border: 1px solid #222;
   border-radius: 18px;
   overflow: hidden;
+  transition: 0.25s ease;
 }
 
 .ad-card.open {
   border-color: #6366f1;
-  box-shadow: 0 12px 35px rgba(0,0,0,0.55);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55);
 }
 
+/* ✅ Header */
 .ad-card-header {
   width: 100%;
   border: none;
   background: transparent;
   color: #fff;
   cursor: pointer;
-  padding: 18px 18px;
+
+  padding: 18px;
   display: flex;
   gap: 18px;
   justify-content: space-between;
   align-items: center;
+
+  /* ✅ prevents layout break on medium screens */
+  flex-wrap: wrap;
 }
 
+/* ✅ User info */
 .ad-user {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  min-width: 260px;
+
+  min-width: 0; /* ✅ allow shrinking */
   text-align: left;
 }
 
@@ -88,6 +99,7 @@
   letter-spacing: 1px;
 }
 
+/* ✅ Metrics */
 .ad-metrics {
   display: flex;
   gap: 14px;
@@ -119,6 +131,7 @@
   margin-top: 4px;
 }
 
+/* ✅ Body */
 .ad-body {
   border-top: 1px solid #222;
   padding: 18px;
@@ -128,10 +141,12 @@
   gap: 16px;
 }
 
+/* ✅ Game row */
 .ad-game {
   display: grid;
   grid-template-columns: 90px 1fr;
   gap: 14px;
+
   background: #0f0f0f;
   border: 1px solid #222;
   border-radius: 16px;
@@ -151,15 +166,16 @@
   background: #000;
 }
 
-.ad-game-title {
-  font-weight: 900;
-  font-size: 16px;
-}
-
+/* ✅ Game content */
 .ad-game-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.ad-game-title {
+  font-weight: 900;
+  font-size: 16px;
 }
 
 .ad-game-qty {
@@ -183,6 +199,7 @@
   align-items: center;
 }
 
+/* ✅ Keys */
 .ad-keys {
   margin-top: 12px;
 }
@@ -206,6 +223,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   background: #111;
   border: 1px solid #222;
   border-radius: 12px;
@@ -213,7 +231,7 @@
 }
 
 .ad-key {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-weight: 900;
   letter-spacing: 1px;
   color: #cfd2ff;
@@ -242,4 +260,24 @@
 .ad-muted {
   color: #777;
   font-weight: 700;
+}
+
+/* ✅ Mobile polish */
+@media (max-width: 768px) {
+  .ad-title {
+    font-size: 1.8rem;
+  }
+
+  .ad-metrics {
+    justify-content: flex-start;
+  }
+
+  .ad-game {
+    grid-template-columns: 1fr;
+  }
+
+  .ad-thumb {
+    width: 100%;
+    height: 180px;
+  }
 }
