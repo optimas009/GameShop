@@ -1,18 +1,21 @@
-/* =========================
-   NAVBAR (FULL CSS - FIXED)
-   ========================= */
+
 
 /* --- Navbar Container --- */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   padding: 0 40px;
   height: 80px;
   background: #000;
-  position: sticky;
+
+  position: fixed; /* ✅ always visible */
   top: 0;
-  z-index: 1000;
+  left: 0;
+  width: 100%;
+  z-index: 3000;
+
   border-bottom: 2px solid #1a1a1a;
   font-family: "Inter", system-ui, sans-serif;
 }
@@ -185,15 +188,15 @@
 .nav-mobile-menu {
   display: none; /* desktop hidden */
 
-  position: fixed;           /* IMPORTANT: doesn't push layout */
-  top: 80px;                 /* below navbar */
+  position: fixed; /* IMPORTANT: doesn't push layout */
+  top: 80px;       /* below navbar */
   left: 0;
   right: 0;
 
   background: rgba(0, 0, 0, 0.98);
   border-bottom: 2px solid #1a1a1a;
   padding: 18px 20px;
-  z-index: 1100;
+  z-index: 3100;
 
   flex-direction: column;
   gap: 14px;
@@ -225,7 +228,7 @@
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.55);
-  z-index: 1050;
+  z-index: 3050; /* between navbar (3000) and menu (3100) */
 }
 
 /* =========================
