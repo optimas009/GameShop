@@ -10,6 +10,30 @@ It features a **social newsfeed**, **media uploads**, **reactions**, **commentin
 
 ---
 
+## 🌍 Live Deployment
+
+### ⚠️ Note: Backend is hosted on Render (Free Tier). 
+If inactive, it may take **up to 60 seconds** to respond due to cold start. Please Wait...
+
+GO-> https://game-vault-neon.vercel.app/home
+
+<br><br>
+
+## 🚀 Sign up to access all features, or use the demo login below. 🚀
+
+### 👤 Normal User Login
+
+## Credentials
+
+- Email: tahmidshams009@gmail.com
+- Password: Ase1234@
+---
+<br><br>
+
+
+
+
+
 ## 🎥 Video Demonstration
 Watch demo here:  
 👉 **[Click to View](https://drive.google.com/drive/folders/1YlwzBJyO-U8C28E3TtsxlKjnicEOvQkM?usp=sharing)**
