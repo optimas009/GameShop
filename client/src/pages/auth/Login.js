@@ -39,7 +39,7 @@ const Login = () => {
     setNextRoute("");
     setPendingVerifyEmail("");
 
-    // case: go to verify with email
+    //  go to verify with email
     if (route === "/verify" && vEmail) {
       navigate("/verify", { replace: true, state: { email: vEmail } });
       return;
@@ -74,25 +74,30 @@ const Login = () => {
 
     const cleanEmail = String(email || "").trim().toLowerCase();
 
+    // reset popup states
     setMessage("");
     setMessageType("");
     setNextRoute("");
     setPendingVerifyEmail("");
 
+    // validations
     if (/[A-Z]/.test(email)) {
       setEmailError("Email must be all lowercase (no capital letters)");
       return;
     }
+
     if (!isValidEmail(cleanEmail)) {
       setEmailError("Enter a valid email address");
       return;
     }
+
     if (!password) {
       setPassError("Password is required");
       return;
     }
 
     setLoading(true);
+
     try {
       const response = await fetch(`${API_BASE_URL}/login`, {
         method: "POST",
@@ -102,8 +107,9 @@ const Login = () => {
 
       const result = await response.json().catch(() => ({}));
 
+      // ===== FAIL =====
       if (!response.ok) {
-        // If not verified → popup then go to verify after OK
+        // if not verified → go to verify after OK
         if (
           response.status === 403 &&
           String(result.message || "").toLowerCase().includes("verify")
@@ -117,15 +123,25 @@ const Login = () => {
           return;
         }
 
+        // clear any old session
         localStorage.removeItem("token");
         localStorage.removeItem("user");
+
+        //  notify Nav immediately
+        window.dispatchEvent(new Event("authchange"));
+
         openPopup("error", result.message || "Invalid email or password");
         return;
       }
 
+      
       localStorage.setItem("user", JSON.stringify(result.user));
       localStorage.setItem("token", result.token);
 
+      // notify Nav immediately so role buttons appear
+      window.dispatchEvent(new Event("authchange"));
+
+      // redirect
       navigate("/home", { replace: true });
     } catch {
       openPopup("error", "Network error. Please try again.");
