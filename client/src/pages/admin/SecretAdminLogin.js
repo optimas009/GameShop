@@ -14,7 +14,7 @@ const isValidEmail = (email) =>
 const SecretAdminLogin = () => {
   const navigate = useNavigate();
 
-  const [checking, setChecking] = useState(true); 
+  const [checking, setChecking] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -24,8 +24,8 @@ const SecretAdminLogin = () => {
 
   //POPUP 
   const [message, setMessage] = useState("");
-  const [messageType, setMessageType] = useState(""); 
-  const [nextRoute, setNextRoute] = useState(""); 
+  const [messageType, setMessageType] = useState("");
+  const [nextRoute, setNextRoute] = useState("");
 
   const openPopup = (type, msg, routeAfterOk = "") => {
     setMessageType(type);
@@ -133,18 +133,24 @@ const SecretAdminLogin = () => {
       const data = await res.json().catch(() => ({}));
 
       if (!res.ok) {
-        //  alert with popup
+        // clear any old session (optional but safe)
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+
+        // notify navbar immediately
+        window.dispatchEvent(new Event("authchange"));
+
         openPopup("error", data.message || "Invalid credentials");
         return;
       }
 
+      //  save session
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
 
-      
-      
+      //  notify navbar immediately so admin buttons appear without refresh
+      window.dispatchEvent(new Event("authchange"));
 
-      
       navigate("/update", { replace: true });
     } catch {
       openPopup("error", "Network error. Please try again.");
@@ -155,7 +161,7 @@ const SecretAdminLogin = () => {
 
   return (
     <div className="auth-container">
-      
+
       {/* POPUP overlay */}
       {message && (
         <div className="overlay" role="dialog" aria-modal="true">
