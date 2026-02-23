@@ -2,7 +2,7 @@
   background: #0a0a0a;
   min-height: 100vh;
 
-  /* ✅ normal spacing (navbar already offset by .app-content) */
+  /* normal spacing (navbar already offset by .app-content) */
   padding: 24px 20px 60px;
 
   color: #fff;
@@ -58,7 +58,7 @@
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.55);
 }
 
-/* ✅ Header */
+/*Header */
 .ad-card-header {
   width: 100%;
   border: none;
@@ -72,17 +72,17 @@
   justify-content: space-between;
   align-items: center;
 
-  /* ✅ prevents layout break on medium screens */
+  /*  prevents layout break on medium screens */
   flex-wrap: wrap;
 }
 
-/* ✅ User info */
+/* User info */
 .ad-user {
   display: flex;
   flex-direction: column;
   gap: 4px;
 
-  min-width: 0; /* ✅ allow shrinking */
+  min-width: 0; /*allow shrinking */
   text-align: left;
 }
 
@@ -99,7 +99,7 @@
   letter-spacing: 1px;
 }
 
-/* ✅ Metrics */
+/* Metrics */
 .ad-metrics {
   display: flex;
   gap: 14px;
@@ -131,7 +131,7 @@
   margin-top: 4px;
 }
 
-/* ✅ Body */
+/* Body */
 .ad-body {
   border-top: 1px solid #222;
   padding: 18px;
@@ -141,7 +141,7 @@
   gap: 16px;
 }
 
-/* ✅ Game row */
+/*  Game row */
 .ad-game {
   display: grid;
   grid-template-columns: 90px 1fr;
@@ -166,7 +166,7 @@
   background: #000;
 }
 
-/* ✅ Game content */
+/* Game content */
 .ad-game-top {
   display: flex;
   justify-content: space-between;
@@ -199,7 +199,7 @@
   align-items: center;
 }
 
-/* ✅ Keys */
+/*  Keys */
 .ad-keys {
   margin-top: 12px;
 }
@@ -262,7 +262,7 @@
   font-weight: 700;
 }
 
-/* ✅ Mobile polish */
+/*  Mobile polish */
 @media (max-width: 768px) {
   .ad-title {
     font-size: 1.8rem;

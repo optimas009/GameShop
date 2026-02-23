@@ -1,7 +1,14 @@
 /* ===== GLOBAL RESET ===== */
-* {
+*
+{
   box-sizing: border-box;
 }
+
+
+html {
+  scroll-behavior: smooth;
+}
+
 
 html, body {
   margin: 0;
@@ -21,7 +28,7 @@ html, body {
   flex-direction: column;
 }
 
-/* ✅ push all pages below fixed navbar */
+/*  push all pages below fixed navbar */
 .app-content {
   flex: 1;
   padding-top: var(--nav-h, 80px);
