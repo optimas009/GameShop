@@ -5,14 +5,35 @@ import AuthFetch from "../../services/AuthFetch";
 import "../../css/Nav.css";
 
 const Nav = () => {
-  const token = localStorage.getItem("token");
+  const location = useLocation();
+
+  //  Keep token in state so Nav re-renders on login/logout
+
+  const [token, setToken] = useState(() => localStorage.getItem("token"));
   const isLoggedIn = !!token;
 
   const [me, setMe] = useState(null);
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const location = useLocation();
+  // Listen for auth changes (same tab) + storage (other tabs)
 
+  useEffect(() => {
+    const syncAuth = () => {
+      const t = localStorage.getItem("token");
+      setToken(t);
+      if (!t) setMe(null); //  instantly clear role 
+    };
+
+    window.addEventListener("authchange", syncAuth);
+    window.addEventListener("storage", syncAuth);
+
+    return () => {
+      window.removeEventListener("authchange", syncAuth);
+      window.removeEventListener("storage", syncAuth);
+    };
+  }, []);
+
+  // Load current user whenever token changes
   useEffect(() => {
     const loadMe = async () => {
       if (!token) {
@@ -51,10 +72,11 @@ const Nav = () => {
 
   const closeMobile = () => setMobileOpen(false);
 
-  //  If you click same route again, scroll to top
+  //  If clicking same route again, go to top
   const onNavClick = (path) => {
     if (location.pathname === path) {
-      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      // smooth everywhere is handled by: html { scroll-behavior: smooth; }
+      window.scrollTo(0, 0);
     }
     closeMobile();
   };
@@ -63,7 +85,7 @@ const Nav = () => {
     <nav className="navbar">
       {/* ================= LEFT SIDE LINKS ================= */}
       <div className="nav-left">
-        {/* Logo now clickable -> /home */}
+        {/* Logo -> /home */}
         <NavLink to="/home" className="nav-logo" onClick={() => onNavClick("/home")}>
           🎮 GameVault
         </NavLink>
@@ -235,7 +257,7 @@ const Nav = () => {
         </div>
       </div>
 
-      {/* Overlay to close menu when tapping outside */}
+      {/* Overlay */}
       {mobileOpen && <div className="nav-overlay" onClick={closeMobile} />}
     </nav>
   );

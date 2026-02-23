@@ -10,7 +10,7 @@ const Logout = () => {
     localStorage.removeItem("user");
 
     // notify app )
-    window.dispatchEvent(new Event("auth-changed"));
+    window.dispatchEvent(new Event("authchange"));
 
     // redirect
     navigate("/home", { replace: true });
